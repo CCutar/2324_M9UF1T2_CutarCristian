@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora Online</title>
+    <!-- Agrega enlaces a los archivos CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Calculadora Online 🖩 </h1>
+        <form action="calculadora.php" method="POST">
+            <div class="form-group">
+                <label for="operacion">Tipo de operación:</label>
+                <select class="form-control" name="operacion" id="operacion">
+                    <option value="suma">Suma</option>
+                    <option value="resta">Resta</option>
+                    <option value="multiplicacion">Multiplicación</option>
+                    <option value="division">División</option>
+                    <option value="factorial">Factorial</option>
+                    <option value="concatenar">Concatenar Strings</option>
+                    <option value="eliminarSubstring">Eliminar Substring</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="numero1">Primer Número:</label>
+                <input type="text" class="form-control" name="numero1" id="numero1">
+            </div>
+            <div class="form-group">
+                <label for="numero2">Segundo Número:</label>
+                <input type="text" class="form-control" name="numero2" id="numero2">
+            </div>
+            <div class="form-group">
+                <label for="string1">Primer String:</label>
+                <input type="text" class="form-control" name="string1" id="string1">
+            </div>
+            <div class="form-group">
+                <label for="substring">Segundo String:</label>
+                <input type="text" class="form-control" name="substring" id="substring">
+            </div>
+            <button type="submit" class="btn btn-primary" name="submit">Calcular</button>
+            <br>
+            <p>Resultado: <?php if (isset($resultado)) { echo $resultado; } ?></p>
+        </form>
+
+        <div class="historial mt-5">
+            <h1>Historial de Operaciones📜</h1>
+            <form class="Boton" method="POST">
+                <button class="btn btn-danger botonEliminar" type="submit" name="limpiar_historial" title="Eliminar historial">
+                    <h1>🗑️</h1>
+                </button>
+            </form>
+        </div>
+
+        <div id="history" class="mt-3">
+            <?php
+            monstrarHistorial();
+            ?>
+        </div>
+    </div>
+
+    <!-- Agrega enlaces a los archivos JavaScript de Bootstrap (opcional) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
